@@ -1,0 +1,32 @@
+<!-- 生产环境 引入webpack执行文件 -->
+{{if htmlWebpackPlugin.options.env === 'production' }}
+    <script src="{{ htmlWebpackPlugin.files.chunks['manifest'].entry }}"></script>
+{{/if}}
+
+<!-- 生产环境 引入打包公共文件 -->
+{{if htmlWebpackPlugin.options.env === 'production' }}
+    {{ if htmlWebpackPlugin.files.chunks['commonChunk'] }}
+        <script src="{{ htmlWebpackPlugin.files.chunks['commonChunk'].entry }}"></script>
+    {{/if}}
+    {{ if htmlWebpackPlugin.files.chunks['commonVendor'] }}
+        <script src="{{ htmlWebpackPlugin.files.chunks['commonVendor'].entry }}"></script>
+    {{/if}}
+{{/if}}
+
+<!-- 引入vue相关dll文件 -->
+<script src="/static/js/dll/vueVendor.9f4e58.js"></script>
+
+<!-- 开发环境 引入基本样式 -->
+{{if htmlWebpackPlugin.options.env === 'dev' }}
+    <script src="{{ htmlWebpackPlugin.files.chunks['style'].entry }}"></script>
+{{/if}}
+
+<!-- 引入模块页面js文件 -->
+<script src="{{htmlWebpackPlugin.files.chunks[htmlWebpackPlugin.options.chunkName].entry}}"></script>
+
+<!-- 生产环境 引入模块页面拆分的 vendor 文件 -->
+{{if htmlWebpackPlugin.options.env === 'production' }}
+    {{ if htmlWebpackPlugin.files.chunks[htmlWebpackPlugin.options.chunkName + '_vendor'] }}
+        <script src="{{ htmlWebpackPlugin.files.chunks[htmlWebpackPlugin.options.chunkName + '_vendor'].entry }}"></script>
+    {{/if}}
+{{/if}}

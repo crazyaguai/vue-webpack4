@@ -1,0 +1,5 @@
+<div id="fs-loading" class="fs-loading-box">
+    <div id="loader-container">
+        <p id="loadingText">Loading</p>
+    </div>
+</div>

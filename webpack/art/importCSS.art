@@ -1,0 +1,5 @@
+<!-- css: 生产环境下注入 -->
+{{if htmlWebpackPlugin.options.env === 'production' }}
+    <link rel="stylesheet" href="{{htmlWebpackPlugin.files.chunks['style'].css.join('') }}">
+    <link rel="stylesheet" href="{{htmlWebpackPlugin.files.chunks[htmlWebpackPlugin.options.chunkName].css.join('') }}">
+{{/if}}
