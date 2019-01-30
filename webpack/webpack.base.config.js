@@ -104,7 +104,16 @@ const baseConfig = {
         child_process: 'empty'
     },
     plugins: [
-        new VueLoaderPlugin()
+        new VueLoaderPlugin(),
+
+        new CopyWebpackPlugin([{
+            from: path.resolve(__dirname, '../static'),
+            to: `${config[process.env.NODE_ENV === 'production'?'build':'dev'].assetsSubDirectory}`,
+            ignore: ['.*']
+        },{
+            from: path.resolve(__dirname, '../favicon.ico'),
+            to: ''
+        }])
     ]
 }
 

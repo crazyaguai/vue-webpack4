@@ -122,13 +122,7 @@ const webpackConfig = merge(baseWebpackConfig, {
         // 保持moduleID稳定
         new webpack.HashedModuleIdsPlugin(),
         // 提升作用域
-        new webpack.optimize.ModuleConcatenationPlugin(),
-
-        new CopyWebpackPlugin([{
-            from: path.resolve(__dirname, '../static'),
-            to: `${config.build.assetsSubDirectory}`,
-            ignore: ['.*']
-        }])
+        new webpack.optimize.ModuleConcatenationPlugin()
     ]
 })
 
