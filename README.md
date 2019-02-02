@@ -1,4 +1,4 @@
-### 基于webpack4的vue脚手架
+### 基于webpack4构建的vue项目脚手架
 
 ---
 
