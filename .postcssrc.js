@@ -9,7 +9,7 @@ function formetRegUrl(url) {
     return url.replace(/\//g,'\\/')
 }
 
-let excludeReg = new RegExp(`(${path1}\\/)|(${path1}\\/)`,'g')
+let excludeReg = new RegExp(`(${path1}\\/)|(${path2}\\/)`,'g')
 
 module.exports = {
     "plugins": {
