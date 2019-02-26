@@ -10,6 +10,7 @@ const UglifyJsPlugin = require("uglifyjs-webpack-plugin")
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin")
 const entry = require('./entry-config')
+const ImageminPlugin = require('imagemin-webpack-plugin').default
 
 const webpackConfig = merge(baseWebpackConfig, {
     mode: 'production',
@@ -149,6 +150,14 @@ entry.vendor.forEach(v=>{
     }
 })
 
+//图片压缩
+webpackConfig.plugins.push(new ImageminPlugin({
+    test: /\.(jpe?g|png|gif|svg)$/i,
+    pngquant: {
+        quality: '10-50',
+        verbose: true
+    },
+}))
 
 // 如果带--report参数，则分析模块
 if (config.build.bundleAnalyzerReport) {
