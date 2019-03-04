@@ -27,6 +27,9 @@ const webpackConfig = merge(baseWebpackConfig, {
         })
     },
     optimization: {
+        namedModules: false,
+        noEmitOnErrors: false,
+        concatenateModules: true,//提升作用域
         minimizer: [
             //压缩js
             new UglifyJsPlugin({
@@ -122,8 +125,6 @@ const webpackConfig = merge(baseWebpackConfig, {
         new webpack.NamedChunksPlugin(),
         // 保持moduleID稳定
         new webpack.HashedModuleIdsPlugin(),
-        // 提升作用域
-        new webpack.optimize.ModuleConcatenationPlugin()
     ]
 })
 
