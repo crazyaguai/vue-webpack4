@@ -7,6 +7,12 @@ import i18n from '@/lang/index'
 
 import '@/scss/style.scss'
 
+//自定义指令
+import '@/directive'
+
+//过滤器
+import '@/filters'
+
 new Vue({
     mounted() {
         /* remove loading */
