@@ -58,6 +58,7 @@ const webpackConfig = merge(baseWebpackConfig, {
             minSize: 0,
             // automaticNameDelimiter: '-',//文件名称分隔符默认'~'
             chunks: "all",//选择哪些块进行优化，可选值：all、async和initial
+            minChunks: 2,
             cacheGroups: {
                 //所有入口src下公共模块
                 commonChunk: {
