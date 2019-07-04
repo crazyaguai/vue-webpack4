@@ -1,51 +1,64 @@
 <template>
-    <div class="demo-container">
-        <Language></Language>
-        <div>{{$t('lang')}}</div>
-        <img :src="require('img/demo.jpeg')" alt="">
-        <div>{{a}}</div>
-        <input v-if="show" type="text" v-length="{model: 'num', length: 6,type: 'number'}" v-model="num">
-        <button @click="show=!show">123</button>
-        <span>{{aaa | add0(10)}}</span>
-        <input type="text" v-model="ss">
-    </div>
+  <div class="demo-container">
+    <Language />
+    <div>{{ $t('lang') }}</div>
+    <img
+      :src="require('img/demo.jpeg')"
+      alt=""
+    >
+    <div>{{ a }}</div>
+    <input
+      v-if="show"
+      v-model="num"
+      v-length="{model: 'num', length: 6,type: 'number'}"
+      type="text"
+    >
+    <button @click="show=!show">
+      123
+    </button>
+    <span>{{ aaa | add0(10) }}</span>
+    <input
+      v-model="ss"
+      type="text"
+    >
+  </div>
 </template>
 
 <script>
-    import Language from '@/lang/language'
-    import number from '@/common/number'
+import Language from '@/lang/language'
+import number from '@/common/number'
 
-    export default {
-        components: {
-            Language
-        },
-        props: {},
-        data() {
-            return {
-                num: 1,
-                aaa: 0.1,
-                ss: '',
-                show: true
-            }
-        },
-        watch: {},
-        computed: {
-            a() {
-                return number.add0(1, 3)
-            }
-        },
-        methods: {
-            logSS(){
-                console.log(this.ss)
-            }
-        },
-        created() {
-        },
-        mounted() {
-        },
-        beforeDestroy() {
-        }
+export default {
+  components: {
+    Language
+  },
+  props: {},
+  data() {
+    return {
+      num: 1,
+      aaa: 0.1,
+      ss: '',
+      show: true
     }
+  },
+  computed: {
+    a() {
+      return number.add0(1, 3)
+    }
+  },
+  watch: {},
+  created() {
+  },
+  mounted() {
+  },
+  beforeDestroy() {
+  },
+  methods: {
+    logSS(){
+      console.log(this.ss)
+    }
+  }
+}
 </script>
 
 <style lang="scss" scoped>

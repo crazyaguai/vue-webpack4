@@ -1,8 +1,12 @@
 module.exports = {
-  parser: 'babel-eslint',
+  // parser: 'babel-eslint',
   extends: [
     'plugin:vue/recommended'
   ],
+  parserOptions: {
+    parser: "babel-eslint",
+    sourceType: "module"
+  },
   env: {
     browser: true,
     node: true,
@@ -12,5 +16,6 @@ module.exports = {
     jasmine: true,
   },
   rules: {
+    "indent": ["error", 2]
   }
 }
